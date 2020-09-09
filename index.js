@@ -7,15 +7,11 @@ console.log('Funções')
 
 // FUNÇÕES
 // Possuímos as funções: falar, dobro, calcularMedia
-function falar() {
-  return 'Pipipi popopo'
-}
+const falar =  () => 'Pipipi popopo' // retira function, adiciona seta e retira chaves
 
-function dobro(num) {
-  return num * 2
-}
+const dobro = (num) => num * 2
 
-function calcularMedia(nota1, nota2, nota3) {
+const calcularMedia = function(nota1, nota2, nota3) {
   const soma = (nota1 + nota2 + nota3)
   const media = soma / 3
   return media
@@ -60,7 +56,9 @@ function ordenar(a, b) {
 
 // Crie uma função chamada calcular que receberá como parâmetro: dois números e uma função de callback
 
-
+function calcular(n1, n2, callback) { //essa é a função callback
+  return callback(n1, n2)
+}
 
 
 
@@ -68,7 +66,8 @@ function ordenar(a, b) {
 
 // Faça a soma de dois números usando a função calcular
 
-
+const resultadoSoma = calcular(3, 5, somar)
+console.log('3 + 5 =', resultadoSoma);
 
 
 
@@ -76,15 +75,17 @@ function ordenar(a, b) {
 
 // Faça a subtração de dois números usando a função calcular
 
+const resultadoSubtrair = calcular(10, 5, subtrair)
 
-
+console.log(`10 - 5 = ${resultadoSubtrair}`); // com templatestring
 
 
 
 
 // Faça a multiplicação de dois números usando a função calcular
 
-
+const resultadoMultiplicar = calcular (2, 6, multiplicar)
+console.log(`2 x 6 = ${resultadoMultiplicar}`);
 
 
 
@@ -92,14 +93,16 @@ function ordenar(a, b) {
 
 // Faça a divisão de dois números usando a função calcular
 
-
+const resultadoDividir = calcular(100, 5, dividir)
+console.log(`100 divido por 5 é ${resultadoDividir}`);
 
 
 
 
 // Faça a ordenação crescente de dois números usando a função calcular
 
-
+const ordenaPraGente = calcular(11, 7, ordenar)
+console.log(`A ordem dos número 11 e 7 é ${ordenaPraGente}`);
 
 
 
