@@ -80,3 +80,21 @@ const shopping = () => {
   }
 
 }
+
+shopping()
+
+class Purchase {
+  constructor(array) {
+    this.newProducts = array
+    this.date = new Date()
+    this.subtotal = 0
+  }
+  calculateSubtotal() {
+    this.subtotal = this.newProducts.reduce((acumulador, item) => acumulador + (item.preco * item.quantidade), 0)
+  }
+
+  dateEdit() {
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
+    this.date = this.date.toLocaleDateString('pt-BR', options)
+  }
+}
