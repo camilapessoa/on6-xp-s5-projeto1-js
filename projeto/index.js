@@ -14,6 +14,20 @@ console.table(produtos)
 
 const readline = require('readline-sync')
 
+
+/* const idProdutos = parseInt(readline.question("Informe a ID do produto desejado: "))
+
+const quantidade = parseInt(readline.question("Informe a quantidade do produto desejado: "))
+
+const desconto = parseInt(readline.question("Você possui cupom de desconto?"))
+
+function procurar (produto) {
+  return produto.id === idProdutos
+}
+
+const produtoEncontrado = produtos.find(procurar)
+console.log(produtoEncontrado)  */
+
 const array = new Array()
 
 let IDproduto
@@ -35,7 +49,7 @@ const shopping = () => {
     }
   }
 
-  itensCompras = parseInt(readline.question('Digite a quantidade de produtos desejados: '))
+  itensCompras = parseInt(readline.question('Digite a quantidade de produtos que gostaria de adquirir: '))
 
   for (i = 0; i < 1000; i++) {
     if (itensCompras > 0) {
@@ -44,3 +58,25 @@ const shopping = () => {
       itensCompras = parseInt(readline.question('Digite uma quantidade válida: '))
     }
   }
+
+  const productsInMyBag = { ...procurarID, quantidade: itensCompras }
+  array.push(productsInMyBag)
+
+  const continueShopping = readline.question('Deseja inserir mais algum produto no carrinho? (Digite S ou N): ')
+  const continueShoppingEdit = continueShopping.toLowerCase()
+
+  if (continueShoppingEdit === "n") {
+    promoCode = parseInt(readline.question('Digite o valor do seu cupom de desconto: '))
+  } else {
+    shopping()
+  }
+
+  for (i = 0; i < 1000; i++) {
+    if (promoCode >= 16 || promoCode <= 0) {
+      promoCode = parseInt(readline.question('Cupom inválido, tente novamente: '))
+    } else {
+      break;
+    }
+  }
+
+}
