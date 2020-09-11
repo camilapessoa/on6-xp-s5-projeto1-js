@@ -107,3 +107,9 @@ console.log(`--- Dados do pedido realizado em ${purchase.date} ---`)
 
 purchase.calculateSubtotal()
 console.log(`Valor do pedido: R$ ${purchase.subtotal.toFixed(2)}`) 
+
+const discount = purchase.subtotal * (promoCode / 100)
+console.log(`Valor do desconto: R$ ${discount.toFixed(2)}`)
+
+const total = purchase.subtotal - discount
+console.log(`Valor total: R$ ${total.toFixed(2)}`)
