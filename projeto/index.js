@@ -98,3 +98,12 @@ class Purchase {
     this.date = this.date.toLocaleDateString('pt-BR', options)
   }
 }
+
+const purchase = new Purchase(array)
+console.table(purchase.newProducts)
+
+purchase.dateEdit()
+console.log(`--- Dados do pedido realizado em ${purchase.date} ---`)
+
+purchase.calculateSubtotal()
+console.log(`Valor do pedido: R$ ${purchase.subtotal.toFixed(2)}`) 
