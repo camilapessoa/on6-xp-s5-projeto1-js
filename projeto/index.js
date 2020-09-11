@@ -35,7 +35,7 @@ let procurarID
 let itensCompras
 let promoCode
 
-const shopping = () => {
+const compras = () => {
 
   IDproduto = parseInt(readline.question('Digite a ID do produto desejado: '))
 
@@ -59,16 +59,16 @@ const shopping = () => {
     }
   }
 
-  const productsInMyBag = { ...procurarID, quantidade: itensCompras }
-  array.push(productsInMyBag)
+  const produtosSacola = { ...procurarID, quantidade: itensCompras }
+  array.push(produtosSacola)
 
-  const continueShopping = readline.question('Deseja inserir mais algum produto no carrinho? (Digite S ou N): ')
-  const continueShoppingEdit = continueShopping.toLowerCase()
+  const continuarComprando = readline.question('Deseja inserir mais algum produto no carrinho? (Digite S ou N): ')
+  const continuarCompra = continuarComprando.toLowerCase()
 
-  if (continueShoppingEdit === "n") {
+  if (continuarCompra === "n") {
     promoCode = parseInt(readline.question('Digite o valor do seu cupom de desconto: '))
   } else {
-    shopping()
+    compras()
   }
 
   for (i = 0; i < 1000; i++) {
@@ -81,15 +81,15 @@ const shopping = () => {
 
 }
 
-shopping()
+compras()
 
-class Purchase {
+class Compra {
   constructor(array) {
     this.newProducts = array
     this.date = new Date()
     this.subtotal = 0
   }
-  calculateSubtotal() {
+  calcularSubtotal() {
     this.subtotal = this.newProducts.reduce((acumulador, item) => acumulador + (item.preco * item.quantidade), 0)
   }
 
@@ -99,17 +99,17 @@ class Purchase {
   }
 }
 
-const purchase = new Purchase(array)
-console.table(purchase.newProducts)
+const compra = new Compra(array)
+console.table(compra.newProducts)
 
-purchase.dateEdit()
-console.log(`--- Dados do pedido realizado em ${purchase.date} ---`)
+compra.dateEdit()
+console.log(`--- Dados do pedido realizado em ${compra.date} ---`)
 
-purchase.calculateSubtotal()
-console.log(`Valor do pedido: R$ ${purchase.subtotal.toFixed(2)}`) 
+compra.calcularSubtotal()
+console.log(`Valor do pedido: R$ ${compra.subtotal.toFixed(2)}`) 
 
-const discount = purchase.subtotal * (promoCode / 100)
+const discount = compra.subtotal * (promoCode / 100)
 console.log(`Valor do desconto: R$ ${discount.toFixed(2)}`)
 
-const total = purchase.subtotal - discount
+const total = compra.subtotal - discount
 console.log(`Valor total: R$ ${total.toFixed(2)}`)
