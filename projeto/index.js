@@ -113,3 +113,5 @@ console.log(`Valor do desconto: R$ ${discount.toFixed(2)}`)
 
 const total = compra.subtotal - discount
 console.log(`Valor total: R$ ${total.toFixed(2)}`)
+
+//projeto realizado com ajuda da Nathália, que foi bastante solìcita.
